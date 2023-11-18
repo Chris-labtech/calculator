@@ -1,2 +1,47 @@
-/* This was created by the work PC. */
-/* This was added by the Lenovo PC. */
+/* Section 1: Header (Below) */
+.headercontainer {
+    display: flex;
+    align-items: stretch; 
+    /* flex-flow: row nowrap; */ 
+    flex-direction: row; 
+    flex-wrap: nowrap;  
+    background-color: #bbdefb;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+  }
+  .headercontainer > div{
+    background: #ffecb3;
+    border: 3px solid #ffcc80;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .item1 { 
+    align-self: flex-start;
+  }         
+  .item2 { 
+    align-self: flex-start;
+  }        
+  .item3 { 
+    text-align: end;
+    flex-grow: 1;
+    align-self: baseline;
+  }
+/* Section 1: Header (Above) */
+
+/* Section 2: Body(1) (Below) */
+.bodycontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: greenyellow;
+    height: 100%;
+    width: 100%;
+  }
+  .calculator{
+    background-color: #ffcc80;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+/* Section 2: Body(1) (Above) */
