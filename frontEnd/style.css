@@ -1,4 +1,4 @@
-/* Section 1: Header (Below)
+/* Section 1: Header (Below) */
 .headercontainer {
     display: flex;
     align-items: stretch; 
@@ -26,7 +26,7 @@
     flex-grow: 1;
     align-self: baseline;
   }
-Section 1: Header (Above) */
+/* Section 1: Header (Above) */
 
 /* Section 2: Body(1) (Below) */
 *, *::before, *::after{
@@ -43,7 +43,7 @@ body{
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
+  min-height: 100%;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
