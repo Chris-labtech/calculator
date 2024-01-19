@@ -83,43 +83,70 @@ class Calculator {
         this.previousOperandTextElement.innerText = ''
       }
     }
-  }
+  };
   
-  const numberButtons = document.querySelectorAll('[data-number]')
-  const operationButtons = document.querySelectorAll('[data-operation]')
-  const equalsButton = document.querySelector('[data-equals]')
-  const deleteButton = document.querySelector('[data-delete]')
-  const allClearButton = document.querySelector('[data-all-clear]')
-  const previousOperandTextElement = document.querySelector('[data-previous-operand]')
-  const currentOperandTextElement = document.querySelector('[data-current-operand]')
+  const numberButtons = document.querySelectorAll('[data-number]');
+  const operationButtons = document.querySelectorAll('[data-operation]');
+  const equalsButton = document.querySelector('[data-equals]');
+  const deleteButton = document.querySelector('[data-delete]');
+  const allClearButton = document.querySelector('[data-all-clear]');
+  const previousOperandTextElement = document.querySelector('[data-previous-operand]');
+  const currentOperandTextElement = document.querySelector('[data-current-operand]');
   
-  const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+  const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
   
+// Improvements
+  const userInputField = document.getElementById('userInput');
+
   numberButtons.forEach(button => {
     button.addEventListener('click', () => {
       calculator.appendNumber(button.innerText)
       calculator.updateDisplay()
     })
-  })
+  });
   
   operationButtons.forEach(button => {
     button.addEventListener('click', () => {
       calculator.chooseOperation(button.innerText)
       calculator.updateDisplay()
     })
-  })
+  });
   
   equalsButton.addEventListener('click', button => {
     calculator.compute()
     calculator.updateDisplay()
-  })
+  });
   
   allClearButton.addEventListener('click', button => {
     calculator.clear()
     calculator.updateDisplay()
-  })
+  });
   
   deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
-  })
+  });
+
+  
+document.addEventListener('keydown', (event) => {
+  const key = event.key;
+
+  // Check if the pressed key is a number or a dot
+  if (!isNaN(key) || key === '.') {
+    calculator.appendNumber(key);
+    calculator.updateDisplay();
+  } 
+    else if (key === 'Enter') {
+    // Handle the Enter key as the equals button
+    event.preventDefault();
+    
+    calculator.compute();
+    calculator.updateDisplay();
+  } 
+    else if (key === 'Escape') {
+    // Handle the Escape key as the AC (all clear) button
+    calculator.clear();
+    calculator.updateDisplay();
+  }
+  
+});
